@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>MatchTempo</title>
-<meta name="description" content="MatchTempo records casual football on Apple Watch and helps organise the game on iPhone. In testing now.">
+<meta name="description" content="Every goal, every game, every season. Your regular football game, properly organised and properly remembered. In testing now.">
 <meta property="og:title" content="MatchTempo">
-<meta property="og:description" content="Football on Apple Watch, organised on iPhone. In testing now.">
+<meta property="og:description" content="Your regular game, properly organised and properly remembered. In testing now.">
 <meta property="og:url" content="https://matchtempo.app/">
 <meta property="og:image" content="https://matchtempo.app/assets/og-image.png">
 <meta name="theme-color" content="#0B0B0A">
@@ -23,19 +23,46 @@
 
 <main>
 <section class="hero">
-<h1>Football on Apple Watch, organised on iPhone</h1>
-<p class="lead">MatchTempo records casual games on your Watch and helps you run them from your phone.</p>
-<div><span class="status">In testing with our Thursday and Monday groups · not yet on the App Store</span></div>
+<h1>Every goal, every game, every season.</h1>
+<p class="lead">Your regular game, properly organised and properly remembered: who played, who scored, and who's top of the table.</p>
+<p>For the five-a-side after work, the weekend kickabout, and every group chat that sorts out who's playing.</p>
+<div><span class="status">Being tested by our Thursday and Monday groups · not on the App Store yet</span></div>
 <p style="margin-top: 20px"><a class="btn" href="/get/">Join the beta</a></p>
 </section>
 
-<div class="cards">
-<div class="card"><h3>On your wrist</h3><p>Time, heart rate, distance and calories, big enough to read mid-game.</p></div>
-<div class="card"><h3>The score</h3><p>Tap to record a goal, undo a mistake, and mark the ones that were yours.</p></div>
-<div class="card"><h3>After the game</h3><p>Your match on iPhone: heart rate through the game, recovery and every goal.</p></div>
-<div class="card"><h3>For organisers</h3><p>Who's in, two even teams and the result, shared to the group chat as text.</p></div>
+<section class="features" aria-label="What MatchTempo does">
+<div class="tabs" role="tablist" aria-label="Who it's for">
+<button type="button" role="tab" id="tab-players" aria-controls="players" aria-selected="true">For players</button>
+<button type="button" role="tab" id="tab-organisers" aria-controls="organisers" aria-selected="false" tabindex="-1">For organisers</button>
 </div>
-<p class="meta" style="margin-top: 20px">Your recordings stay on your Watch and iPhone. There's no account to create.</p>
+
+<div class="panel" role="tabpanel" id="players" aria-labelledby="tab-players" tabindex="0">
+<ul class="feat">
+<li><span class="t">Your game at a glance</span><span class="d">Time, heart rate, distance and calories on your Watch, in type big enough to read mid-game.</span><span class="tag beta">In the beta</span></li>
+<li><span class="t">Keep the score</span><span class="d">Tap to add a goal for either side, undo a mistake, and mark the ones you scored.</span><span class="tag beta">In the beta</span></li>
+<li><span class="t">No phone on the pitch</span><span class="d">The Watch records on its own and passes everything to your iPhone afterwards.</span><span class="tag beta">In the beta</span></li>
+<li><span class="t">Look back at the game</span><span class="d">Heart rate through the match, your recovery afterwards, and every goal with its minute.</span><span class="tag beta">In the beta</span></li>
+<li><span class="t">Rate how it went</span><span class="d">Score your effort and enjoyment after each game, and see how they change over a season.</span><span class="tag">Planned</span></li>
+<li><span class="t">Your player card</span><span class="d">Appearances, goals and Player of the Match awards, on a card you can share.</span><span class="tag">Planned</span></li>
+<li><span class="t">Reply and vote from a link</span><span class="d">Say you're in, get a reminder with the kick-off time and place, and vote for Player of the Match, even without the app.</span><span class="tag">Planned</span></li>
+</ul>
+</div>
+
+<div class="panel" role="tabpanel" id="organisers" aria-labelledby="tab-organisers" tabindex="0" hidden>
+<ul class="feat">
+<li><span class="t">Who's in</span><span class="d">Keep your player list, tick who's playing this week and add guests.</span><span class="tag beta">In the beta</span></li>
+<li><span class="t">Teams in seconds</span><span class="d">Shuffle into even sides with the keepers apart, then adjust by hand.</span><span class="tag beta">In the beta</span></li>
+<li><span class="t">Straight to the group chat</span><span class="d">Send the teams and the result to WhatsApp as plain text. Nobody needs the app to read them.</span><span class="tag beta">In the beta</span></li>
+<li><span class="t">A record of who played</span><span class="d">Confirm the teams after the game, including swaps and late arrivals, then add the score and scorers.</span><span class="tag beta">In the beta</span></li>
+<li><span class="t">Replies by link</span><span class="d">Players say in or out from a link, with a player limit and a waiting list when it's full.</span><span class="tag">Planned</span></li>
+<li><span class="t">Seasons and tables</span><span class="d">Group seasons with a league table, and a Player of the Match vote after each game.</span><span class="tag">Planned</span></li>
+<li><span class="t">Share the work</span><span class="d">Let someone else run a game for a week without handing over the whole group.</span><span class="tag">Planned</span></li>
+</ul>
+</div>
+<p class="meta" style="margin-top: 16px">Organising, replying and voting will work in any phone's browser, iPhone or Android, with no download needed. Recording a game needs an Apple Watch for now. Football first; hockey is planned for later.</p>
+</section>
+
+<p class="meta" style="margin-top: 28px">Your recordings stay on your Watch and iPhone, and there's no account to create. <a href="/privacy/">How we handle your data</a>.</p>
 </main>
 
 <footer>
@@ -45,5 +72,31 @@
 <span>Apple Watch and iPhone are trademarks of Apple Inc.</span>
 </footer>
 </div>
+<script>
+(function () {
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('[role="tab"]'));
+  function show(tab, focus) {
+    tabs.forEach(function (t) {
+      var on = t === tab;
+      t.setAttribute('aria-selected', String(on));
+      t.tabIndex = on ? 0 : -1;
+      document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+    });
+    if (focus) tab.focus();
+    try { history.replaceState(null, '', '#' + tab.getAttribute('aria-controls')); } catch (e) {}
+  }
+  tabs.forEach(function (t, i) {
+    t.addEventListener('click', function () { show(t, false); });
+    t.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+        e.preventDefault();
+        show(tabs[(i + (e.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length], true);
+      }
+    });
+  });
+  if (location.hash === '#organisers') show(tabs[1], false);
+})();
+</script>
+<noscript><style>.panel[hidden]{display:block}.tabs{display:none}</style></noscript>
 </body>
 </html>
