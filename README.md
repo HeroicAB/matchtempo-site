@@ -1,0 +1,29 @@
+# matchtempo.app
+
+The public website: a holding page, the `/get` link, privacy and support. Plain static files, no build step.
+
+| Path | Purpose |
+|---|---|
+| `/` | What MatchTempo is, and **Join the beta** |
+| `/get/` | The one link we share. Edit `TARGET` in `get/index.html`: the TestFlight public link during the beta, the App Store link after launch. Empty shows "not ready yet". |
+| `/privacy/` | Privacy policy (needed for Apple Health and TestFlight). Draft dated 13 October 2026; review before the beta. |
+| `/support/` | Contact and common questions |
+| `404.html` | Not-found page |
+| `CNAME` | Tells GitHub Pages the custom domain |
+
+Fonts are Big Shoulders (SIL Open Font License, `assets/OFL.txt`). Logos come from the MatchTempo design system.
+
+## Publishing on GitHub Pages
+
+1. Create a **public** repository, for example `HeroicAB/matchtempo-site` (GitHub Pages is free for public repositories; the app repository stays private). Put these files at its root and push to `main`.
+2. In the repository: Settings → Pages → Source "Deploy from a branch", branch `main`, folder `/`. Set the custom domain to `matchtempo.app`.
+3. At the domain registrar, add DNS records for the apex `matchtempo.app` (check the current values in GitHub's Pages documentation before entering them):
+   - `A` records: `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
+   - `AAAA` records: `2606:50c0:8000::153`, `2606:50c0:8001::153`, `2606:50c0:8002::153`, `2606:50c0:8003::153`
+   - optionally `CNAME` for `www` pointing to `heroicab.github.io`
+4. Once GitHub has issued the certificate, tick **Enforce HTTPS**. `.app` domains only load over HTTPS, so the site won't open until this step is done.
+5. Recommended: verify the domain in your GitHub account settings (Pages → Verified domains) so nobody else can claim it.
+
+## Email
+
+The pages use `support@matchtempo.app`. Set up forwarding to your own inbox (many registrars offer it free, or Cloudflare Email Routing if the DNS is on Cloudflare) before the site goes live.
