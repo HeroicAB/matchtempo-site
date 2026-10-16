@@ -26,4 +26,4 @@ Fonts are Big Shoulders (SIL Open Font License, `assets/OFL.txt`). Logos come fr
 
 ## Email
 
-The pages use `support@matchtempo.app`. Set up forwarding to your own inbox (many registrars offer it free, or Cloudflare Email Routing if the DNS is on Cloudflare) before the site goes live.
+`support@matchtempo.app` is an iCloud Mail custom-domain address. To keep it away from simple scrapers, no page has the address or a `mailto:` link in its HTML: links are written as `<a class="email" data-user="support" data-host="matchtempo app">support at matchtempo dot app</a>` and `assets/contact.js` turns them into a normal email link in the browser. Include that script on any page that uses the link. Without JavaScript, visitors see the readable "at ... dot" form.
