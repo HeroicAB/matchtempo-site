@@ -58,6 +58,7 @@ strong { color: var(--text); font-weight: 700; }
 
 .meta { color: var(--muted); font-size: 16px; }
 .note { background: var(--surface); border-radius: 16px; padding: 14px 18px; margin: 20px 0; }
+.note p { margin: 0; }
 
 footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; gap: 8px 20px; color: var(--muted); font-size: 16px; }
 footer a { color: var(--muted); }
