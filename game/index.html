@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <meta name="robots" content="noindex, nofollow">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'none'; script-src 'self'; style-src 'self'; font-src 'self'; connect-src https://*.supabase.co; img-src 'self'; base-uri 'none'; form-action 'none'">
+  <title>Game · MatchTempo</title>
+  <link rel="preload" href="fonts/BigShouldersDisplay-ExtraBold.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="game.css">
+  <script src="config.js" defer></script>
+  <script src="game.js" defer></script>
+</head>
+<body>
+  <header class="bar">
+    <span class="brand">MATCHTEMPO</span>
+    <span class="group" id="group"></span>
+    <a class="get-app" href="https://matchtempo.app/">Get the app</a>
+  </header>
+  <main id="game" aria-live="polite">
+    <p class="message" id="message">Loading the game…</p>
+    <noscript><p class="message">This page needs JavaScript to show the game.</p></noscript>
+  </main>
+</body>
+</html>

@@ -8,6 +8,7 @@ The public website: a holding page, the `/get` link, privacy and support. Plain 
 | `/get/` | The one link we share. Edit `TARGET` in `get/index.html`: the TestFlight public link during the beta, the App Store link after launch. Empty shows "not ready yet". |
 | `/privacy/` | Privacy policy (needed for Apple Health and TestFlight). Draft dated 13 October 2026; review before the beta. |
 | `/support/` | Contact and common questions |
+| `/game/` | Read-only page for a shared game link (`/game/#<token>`). Copied from `web/game/` in the app repository (without `test/` and `README.md`); `config.js` holds the Supabase project URL and **publishable** key only. Update it by copying again from there. |
 | `404.html` | Not-found page |
 | `CNAME` | Tells GitHub Pages the custom domain |
 
