@@ -79,11 +79,14 @@
     var a = sides.a || {}, b = sides.b || {};
     var result = data.result;
     var cancelled = data.status === 'cancelled';
+    var voided = data.status === 'void';
 
     root.appendChild(el('h1', 'day', w.day));
     root.appendChild(el('p', 'meta', [w.time, data.venue, data.pitch].filter(Boolean).join(' · ')));
 
     if (cancelled) root.appendChild(el('p', 'notice', 'This game was cancelled.'));
+    // A void game keeps its score and teams as a record, but nothing from it counts.
+    if (voided) root.appendChild(el('p', 'notice', 'This game was made void. Its result doesn’t count in the table.'));
 
     var tiles = el('div', 'tiles');
     [['a', a], ['b', b]].forEach(function (pair) {
@@ -99,7 +102,7 @@
     });
     root.appendChild(tiles);
 
-    if (!result && !cancelled) {
+    if (!result && !cancelled && !voided) {
       var started = new Date(data.kick_off).getTime() <= Date.now();
       root.appendChild(el('p', 'meta', started ? 'No result yet.' : 'Not played yet.'));
     }
