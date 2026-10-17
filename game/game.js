@@ -154,6 +154,146 @@
     return card;
   }
 
+  // Kick-off weather (board AE, B-13). The server sends the kick-off hour in metric
+  // units, or only sunset/sunrise when the forecast isn't out yet. A visitor has no
+  // Units setting, so the browser's language picks them: US English gets °F, mph and
+  // inches, British English °C, mph and mm, everyone else °C, km/h and mm.
+  function weatherUnits(lang) {
+    if (/^en-US\b/i.test(lang || '')) return { f: true, wind: 'mph', inches: true };
+    if (/^en-GB\b/i.test(lang || '')) return { f: false, wind: 'mph', inches: false };
+    return { f: false, wind: 'km/h', inches: false };
+  }
+
+  function num(v) { return typeof v === 'number' && isFinite(v); }
+
+  // WeatherKit condition codes, grouped by the icon they get. A code not listed
+  // here still shows its words, with the cloud icon.
+  var SKY = {
+    clear: ['Clear', 'MostlyClear', 'Hot', 'Frigid'],
+    partly: ['PartlyCloudy'],
+    fog: ['Foggy', 'Haze', 'Smoky', 'BlowingDust'],
+    wind: ['Breezy', 'Windy', 'Hurricane', 'TropicalStorm'],
+    rain: ['Drizzle', 'Rain', 'HeavyRain', 'SunShowers', 'FreezingDrizzle', 'FreezingRain', 'Hail', 'Sleet', 'WintryMix'],
+    snow: ['Flurries', 'Snow', 'SunFlurries', 'HeavySnow', 'Blizzard', 'BlowingSnow'],
+    storm: ['IsolatedThunderstorms', 'ScatteredThunderstorms', 'Thunderstorms', 'StrongStorms']
+  };
+  var CLOUD = 'M7 18h10a4 4 0 0 0 .5-7.97A6 6 0 0 0 6 9.5 4.25 4.25 0 0 0 7 18Z';
+  var HIGH_CLOUD = 'M7 15h10a4 4 0 0 0 .5-7.97A6 6 0 0 0 6 6.5 4.25 4.25 0 0 0 7 15Z';
+  var SKY_ICON = {
+    sun: 'M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z M12 2v2 M12 20v2 M4.9 4.9l1.4 1.4 M17.7 17.7l1.4 1.4 M2 12h2 M20 12h2 M4.9 19.1l1.4-1.4 M17.7 6.3l1.4-1.4',
+    moon: 'M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5Z',
+    partly: CLOUD + ' M5 3.5v1 M1.5 7h1 M2.5 4.5l.7.7 M9.5 5A4 4 0 0 0 3 8',
+    cloud: CLOUD,
+    fog: 'M4 8h16 M6 12h12 M4 16h16',
+    wind: 'M3 9h11a3 3 0 1 0-3-3 M3 15h15a3 3 0 1 1-3 3',
+    rain: HIGH_CLOUD + ' M8 18l-1 2.5 M12 18l-1 2.5 M16 18l-1 2.5',
+    snow: HIGH_CLOUD + ' M8 19h.01 M12 21h.01 M16 19h.01',
+    storm: HIGH_CLOUD + ' M12.5 15l-2 3.5h3l-2 3.5'
+  };
+
+  function skyIcon(code, dark) {
+    var group = Object.keys(SKY).filter(function (k) { return SKY[k].indexOf(code) >= 0; })[0] || 'cloud';
+    if (group === 'clear') return SKY_ICON[dark ? 'moon' : 'sun'];
+    if (group === 'partly') return SKY_ICON[dark ? 'cloud' : 'partly'];
+    return SKY_ICON[group];
+  }
+
+  // "MostlyCloudy" -> "Mostly cloudy".
+  function skyWords(code) {
+    var words = String(code || '').replace(/([a-z])([A-Z])/g, '$1 $2').toLowerCase();
+    return words.charAt(0).toUpperCase() + words.slice(1);
+  }
+
+  var SUN_WHEN = { before_kick_off: 'Before kick-off', during_game: 'During the game', after_game: 'After the game' };
+
+  function measure(label, value, unit, note) {
+    var m = el('div', 'wx-measure');
+    m.appendChild(el('span', 'wx-m-label', label));
+    var v = el('span', 'wx-m-value', value);
+    if (unit) v.appendChild(el('span', 'wx-m-unit', unit));
+    m.appendChild(v);
+    if (note) m.appendChild(el('span', 'wx-m-note', note));
+    return m;
+  }
+
+  function weatherCard(data, units) {
+    var wx = data.weather;
+    var zone = data.time_zone;
+    var card = el('section', 'weather');
+    var head = el('div', 'wx-head');
+    head.appendChild(el('h2', 'label', 'Weather at ' + when(data.kick_off, zone).time));
+    var fc = wx.status === 'forecast' ? wx.forecast : null;
+    if (fc) head.appendChild(el('span', 'wx-tag', 'Forecast'));
+    card.appendChild(head);
+
+    var sun = wx.sun && wx.sun.at ? wx.sun : null;
+    var sunLabel = sun && (sun.kind === 'sunrise' ? 'Sunrise' : 'Sunset');
+    var sunNote = sun && SUN_WHEN[sun.relation];
+
+    if (!fc) {
+      if (wx.status === 'too_early' && wx.forecast_from) {
+        card.appendChild(el('p', 'wx-text', 'The forecast appears 10 days before kick-off, from ' + when(wx.forecast_from, zone).day + '.'));
+      } else {
+        card.appendChild(el('p', 'wx-text', 'The forecast isn’t in yet. It’s checked every 3 hours.'));
+      }
+      if (sun) {
+        var line = el('p', 'wx-sun');
+        line.appendChild(el('span', '', sunLabel + ' ' + when(sun.at, zone).time));
+        if (sunNote) line.appendChild(el('span', 'wx-sun-note', sunNote));
+        card.appendChild(line);
+      }
+      return card;
+    }
+
+    var c2f = function (c) { return units.f ? c * 9 / 5 + 32 : c; };
+    var dark = sun && ((sun.kind === 'sunset' && sun.relation === 'before_kick_off') ||
+                       (sun.kind === 'sunrise' && sun.relation === 'after_game'));
+    var now = el('div', 'wx-now');
+    var ic = el('span', 'wx-icon');
+    ic.appendChild(icon(skyIcon(fc.condition, dark)));
+    now.appendChild(ic);
+    if (num(fc.temperature_c)) now.appendChild(el('span', 'wx-temp', Math.round(c2f(fc.temperature_c)) + '°'));
+    var words = el('span', 'wx-words');
+    if (num(fc.feels_like_c)) words.appendChild(el('span', '', 'Feels like ' + Math.round(c2f(fc.feels_like_c)) + '°'));
+    if (fc.condition) words.appendChild(el('span', 'wx-sky', skyWords(fc.condition)));
+    now.appendChild(words);
+    card.appendChild(now);
+
+    // Only measures the forecast has: a missing value is left out, never shown as a dash.
+    var measures = el('div', 'wx-measures');
+    if (num(fc.rain_chance)) {
+      var mm = num(fc.rain_mm) ? fc.rain_mm : null;
+      var amount = mm === null ? null : mm === 0 ? 'No rain'
+        : units.inches ? (mm / 25.4).toFixed(2) + ' in' : mm.toFixed(1) + ' mm';
+      measures.appendChild(measure('Rain', Math.round(fc.rain_chance * 100) + '%', null, amount));
+    }
+    if (num(fc.wind_kph)) {
+      var speed = function (kph) { return Math.round(units.wind === 'mph' ? kph / 1.609344 : kph); };
+      measures.appendChild(measure('Wind', speed(fc.wind_kph), units.wind,
+                                   num(fc.gust_kph) ? 'Gusts ' + speed(fc.gust_kph) : null));
+    }
+    if (sun) measures.appendChild(measure(sunLabel, when(sun.at, zone).time, null, sunNote));
+    if (measures.childNodes.length) card.appendChild(measures);
+
+    // Apple's terms: the Apple Weather mark and a link to its data sources wherever
+    // the forecast shows.
+    var credit = el('p', 'wx-credit');
+    credit.appendChild(el('span', 'wx-mark', wx.source || 'Apple Weather'));
+    credit.appendChild(document.createTextNode(' · '));
+    var sources = el('a', '', 'Data sources');
+    sources.href = 'https://developer.apple.com/weatherkit/data-source-attribution/';
+    sources.target = '_blank';
+    sources.rel = 'noopener noreferrer';
+    credit.appendChild(sources);
+    if (wx.updated_at) {
+      var at = when(wx.updated_at, zone);
+      var today = when(new Date().toISOString(), zone).day;
+      credit.appendChild(el('span', 'wx-updated', 'Updated ' + (at.day === today ? '' : at.day + ' ') + at.time));
+    }
+    card.appendChild(credit);
+    return card;
+  }
+
   function render(data, root) {
     root.textContent = '';
     document.getElementById('group').textContent = data.group_name || '';
@@ -181,6 +321,7 @@
       tile.style.backgroundColor = fill;
       tile.style.color = textOn(fill);
       if (fill === KIT.white) tile.classList.add('tile-light');
+      if (textOn(fill) === '#FFFFFF') tile.classList.add('tile-dark');
       tile.appendChild(el('span', 'tile-name', side.name || (key === 'a' ? 'Side A' : 'Side B')));
       if (result) tile.appendChild(el('span', 'tile-score', key === 'a' ? result.score_a : result.score_b));
       tiles.appendChild(tile);
@@ -221,6 +362,12 @@
       } else if (result.score_a + result.score_b > 0) {
         root.appendChild(el('p', 'meta', 'Scorers not recorded.'));
       }
+    }
+
+    // The server drops the weather at kick-off; a page left open drops it too.
+    var upcoming = new Date(data.kick_off).getTime() > Date.now();
+    if (data.weather && data.status === 'scheduled' && upcoming) {
+      root.appendChild(weatherCard(data, weatherUnits((navigator.languages || [])[0] || navigator.language)));
     }
 
     if (data.venue) root.appendChild(venueCard(data, !cancelled));
