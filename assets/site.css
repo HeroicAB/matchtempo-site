@@ -62,3 +62,5 @@ strong { color: var(--text); font-weight: 700; }
 
 footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; gap: 8px 20px; color: var(--muted); font-size: 16px; }
 footer a { color: var(--muted); }
+
+.draft { display: inline-block; margin: 0 0 16px; padding: 6px 12px; border-radius: 12px; background: var(--surface); box-shadow: inset 0 0 0 1.5px var(--muted); color: var(--text); font-size: 16px; }
