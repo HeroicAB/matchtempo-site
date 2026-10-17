@@ -69,6 +69,91 @@
     return s;
   }
 
+  // Directions (board AQ2). The page can't tell which apps are installed, so it lists
+  // all three as links; Apple Maps only on Apple devices (iPad reports Macintosh).
+  // Each link carries only the venue, so nothing about the trip comes back to us.
+  function directionLinks(data, ua) {
+    var loc = data.venue_location;
+    var point = loc && isFinite(loc.latitude) && isFinite(loc.longitude) ? loc.latitude + ',' + loc.longitude : null;
+    var query = [data.venue, data.venue_address].filter(Boolean).join(', ');
+    var to = encodeURIComponent(point || query);
+    var links = [];
+    if (/iPhone|iPad|iPod|Macintosh/.test(ua || '')) {
+      links.push({ name: 'Apple Maps', note: 'On iPhone, iPad and Mac',
+                   href: 'https://maps.apple.com/?daddr=' + to + '&q=' + encodeURIComponent(data.venue || '') });
+    }
+    links.push({ name: 'Google Maps', note: 'App or website',
+                 href: 'https://www.google.com/maps/dir/?api=1&destination=' + to });
+    links.push({ name: 'Waze', note: 'App or website',
+                 href: point ? 'https://waze.com/ul?ll=' + to + '&navigate=yes' : 'https://waze.com/ul?q=' + to + '&navigate=yes' });
+    return links;
+  }
+
+  function icon(d) {
+    var ns = 'http://www.w3.org/2000/svg';
+    var svg = document.createElementNS(ns, 'svg');
+    svg.setAttribute('viewBox', '0 0 24 24');
+    svg.setAttribute('width', '22');
+    svg.setAttribute('height', '22');
+    svg.setAttribute('aria-hidden', 'true');
+    var path = document.createElementNS(ns, 'path');
+    path.setAttribute('d', d);
+    path.setAttribute('fill', 'none');
+    path.setAttribute('stroke', 'currentColor');
+    path.setAttribute('stroke-width', '2');
+    path.setAttribute('stroke-linecap', 'round');
+    path.setAttribute('stroke-linejoin', 'round');
+    svg.appendChild(path);
+    return svg;
+  }
+  var TURN = 'M12 2.5 21.5 12 12 21.5 2.5 12Z M9 15v-3.5h6 M12.5 9l2.5 2.5-2.5 2.5';
+  var PIN = 'M12 21s-6.5-6.2-6.5-11a6.5 6.5 0 0 1 13 0c0 4.8-6.5 11-6.5 11Z M12 12.2a2.2 2.2 0 1 0 0-4.4 2.2 2.2 0 0 0 0 4.4Z';
+
+  function venueCard(data, showDirections) {
+    var card = el('div', 'venue');
+    card.appendChild(el('h2', 'label', 'Venue'));
+    card.appendChild(el('p', 'venue-name', data.venue));
+    var line = [data.pitch, data.venue_address].filter(Boolean).join(' · ');
+    if (line) card.appendChild(el('p', 'venue-line', line));
+    if (!showDirections) return card;
+
+    var sheet = el('dialog', 'sheet');
+    sheet.setAttribute('aria-label', 'Directions to ' + data.venue);
+    sheet.appendChild(el('h2', 'sheet-title', 'Directions to ' + data.venue));
+    directionLinks(data, navigator.userAgent).forEach(function (link) {
+      var a = el('a', 'app');
+      a.href = link.href;
+      a.target = '_blank';
+      a.rel = 'noopener noreferrer';
+      var ic = el('span', 'app-icon');
+      ic.appendChild(icon(PIN));
+      a.appendChild(ic);
+      var words = el('span', 'app-words');
+      words.appendChild(el('span', 'app-name', link.name));
+      words.appendChild(el('span', 'app-note', link.note));
+      a.appendChild(words);
+      a.appendChild(el('span', 'app-go', '›'));
+      sheet.appendChild(a);
+    });
+    sheet.appendChild(el('p', 'sheet-note', 'Opens a maps link. MatchTempo doesn’t see your route.'));
+    var cancel = el('button', 'sheet-cancel', 'Cancel');
+    cancel.type = 'button';
+    cancel.addEventListener('click', function () { sheet.close(); });
+    sheet.appendChild(cancel);
+    // A tap on the dimmed page outside the sheet closes it too.
+    sheet.addEventListener('click', function (e) { if (e.target === sheet) sheet.close(); });
+
+    var button = el('button', 'directions');
+    button.type = 'button';
+    button.setAttribute('aria-label', 'Directions to ' + data.venue);
+    button.appendChild(icon(TURN));
+    button.appendChild(el('span', '', 'Directions'));
+    button.addEventListener('click', function () { sheet.showModal(); });
+    card.appendChild(button);
+    card.appendChild(sheet);
+    return card;
+  }
+
   function render(data, root) {
     root.textContent = '';
     document.getElementById('group').textContent = data.group_name || '';
@@ -82,7 +167,7 @@
     var voided = data.status === 'void';
 
     root.appendChild(el('h1', 'day', w.day));
-    root.appendChild(el('p', 'meta', [w.time, data.venue, data.pitch].filter(Boolean).join(' · ')));
+    root.appendChild(el('p', 'meta', data.venue ? w.time : [w.time, data.pitch].filter(Boolean).join(' · ')));
 
     if (cancelled) root.appendChild(el('p', 'notice', 'This game was cancelled.'));
     // A void game keeps its score and teams as a record, but nothing from it counts.
@@ -137,6 +222,8 @@
         root.appendChild(el('p', 'meta', 'Scorers not recorded.'));
       }
     }
+
+    if (data.venue) root.appendChild(venueCard(data, !cancelled));
 
     var teams = data.teams || {};
     var teamA = teams.a || [], teamB = teams.b || [];

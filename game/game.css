@@ -109,3 +109,68 @@ main { max-width: 480px; margin: 0 auto; padding: 12px 16px 32px; }
 .names li { padding: 4px 0; overflow-wrap: anywhere; }
 
 a { color: var(--link); }
+
+/* Venue card and directions sheet (board AQ2). */
+.venue { margin-top: 20px; padding: 14px 16px 16px; border-radius: 20px; background: var(--card); }
+.venue .label { margin-bottom: 6px; }
+.venue-name { margin: 0; font: 800 22px/1.1 var(--display); overflow-wrap: anywhere; }
+.venue-line { margin: 4px 0 0; font-size: 15px; color: var(--ink-2); overflow-wrap: anywhere; }
+.directions {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  margin-top: 12px;
+  padding: 0 16px 0 12px;
+  border: 0;
+  border-radius: 22px;
+  background: var(--link);
+  color: #FFFFFF;
+  font: 800 17px/1 var(--display);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.sheet {
+  margin: auto 0 0;
+  width: 100%;
+  max-width: 100%;
+  max-height: 90vh;
+  padding: 16px 16px 30px;
+  border: 0;
+  border-radius: 28px 28px 0 0;
+  background: var(--page);
+  color: var(--ink);
+}
+@media (min-width: 520px) { .sheet { margin: auto; max-width: 480px; border-radius: 28px; } }
+.sheet::backdrop { background: rgba(11, 11, 10, 0.35); }
+.sheet-title { margin: 0 0 8px; font: 800 21px/1.15 var(--display); text-transform: uppercase; overflow-wrap: anywhere; }
+.app {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 56px;
+  margin-top: 8px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: var(--card);
+  color: var(--ink);
+  text-decoration: none;
+}
+.app-icon { flex: none; display: flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 9px; background: #E4E0D8; }
+.app-words { display: flex; flex-direction: column; min-width: 0; }
+.app-name { font-size: 18px; }
+.app-note { font-size: 14px; color: var(--ink-2); }
+.app-go { margin-left: auto; font-size: 20px; color: var(--ink-3); }
+.sheet-note { margin: 10px 0 0; font-size: 15px; color: var(--ink-2); }
+.sheet-cancel {
+  display: block;
+  width: 100%;
+  min-height: 44px;
+  margin-top: 8px;
+  border: 0;
+  background: none;
+  color: var(--link);
+  font: 700 18px/1 var(--text);
+  cursor: pointer;
+}
