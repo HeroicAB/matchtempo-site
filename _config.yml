@@ -1,0 +1,3 @@
+# GitHub Pages runs Jekyll, which skips dot folders. Keep .well-known so iOS can read
+# apple-app-site-association (universal links for /join/).
+include: [".well-known"]

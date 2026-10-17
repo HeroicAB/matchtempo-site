@@ -11,6 +11,8 @@ The public website: a holding page, the `/get` link, privacy and support. Plain 
 | `/terms/<version>/`, `/privacy/<version>/` | A frozen copy of each published version, so we can always show what someone agreed to. `/privacy/2026-10-13/` is the draft from before versions. |
 | `/support/` | Contact and common questions |
 | `/game/` | Read-only page for a shared game link (`/game/#<token>`). Copied from `web/game/` in the app repository (without `test/` and `README.md`); `config.js` holds the Supabase project URL and **publishable** key only. Update it by copying again from there. |
+| `/join/` | Group join link (`/join/#<token>`). With the app installed, iOS opens the app instead of this page (universal link); otherwise the page says to get the app and tap the link again. The token stays in the fragment, so it never reaches the server. Browser joining comes later (B-15). |
+| `.well-known/apple-app-site-association` | Tells iOS that `/join/*` links belong to the app `RALVGAQC3U.app.matchtempo`. `_config.yml` keeps the dot folder in the GitHub Pages build. |
 | `404.html` | Not-found page |
 | `CNAME` | Tells GitHub Pages the custom domain |
 

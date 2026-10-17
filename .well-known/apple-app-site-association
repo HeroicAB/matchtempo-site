@@ -1,0 +1,12 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["RALVGAQC3U.app.matchtempo"],
+        "components": [
+          { "/": "/join/*", "comment": "Group join links: matchtempo.app/join/#<token>" }
+        ]
+      }
+    ]
+  }
+}
