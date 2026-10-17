@@ -226,7 +226,8 @@ a { color: var(--link); }
 .wx-m-unit { margin-left: 2px; font: 700 13px/1 var(--text); color: var(--ink-2); }
 .wx-m-note { font-size: 13px; color: var(--ink-2); }
 .wx-credit { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px; margin: 10px 0 0; font-size: 13px; color: var(--ink-2); }
-.wx-mark { color: var(--ink); }
+.wx-mark { align-self: center; display: flex; }
+.wx-mark img { display: block; width: 77px; height: 14px; }
 .wx-updated { margin-left: auto; color: var(--ink-3); }
 /* Large text or a narrow screen: the three measures stack as rows (AE2 large text). */
 @media (max-width: 22.5em) {

@@ -276,9 +276,21 @@
     if (measures.childNodes.length) card.appendChild(measures);
 
     // Apple's terms: the Apple Weather mark and a link to its data sources wherever
-    // the forecast shows.
+    // the forecast shows. The mark images are served from this folder, so the page
+    // still sends nothing to Apple; the dark one follows the system setting.
     var credit = el('p', 'wx-credit');
-    credit.appendChild(el('span', 'wx-mark', wx.source || 'Apple Weather'));
+    var mark = el('picture', 'wx-mark');
+    var darkMark = document.createElement('source');
+    darkMark.media = '(prefers-color-scheme: dark)';
+    darkMark.srcset = 'brand/apple-weather-dark.png';
+    var logo = document.createElement('img');
+    logo.src = 'brand/apple-weather-light.png';
+    logo.alt = 'Apple Weather';
+    logo.width = 77;
+    logo.height = 14;
+    mark.appendChild(darkMark);
+    mark.appendChild(logo);
+    credit.appendChild(mark);
     credit.appendChild(document.createTextNode(' · '));
     var sources = el('a', '', 'Data sources');
     sources.href = 'https://developer.apple.com/weatherkit/data-source-attribution/';
