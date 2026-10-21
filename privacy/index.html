@@ -7,7 +7,7 @@
 <meta name="description" content="How MatchTempo handles your data.">
 <meta name="theme-color" content="#0B0B0A">
 <meta name="matchtempo:document" content="privacy">
-<meta name="matchtempo:version" content="0.4">
+<meta name="matchtempo:version" content="0.4.1">
 <meta name="matchtempo:published" content="2026-10-21">
 <link rel="icon" href="/assets/favicon-32.png" sizes="32x32">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
@@ -20,9 +20,9 @@
 <nav aria-label="Site"><a href="/support/">Support</a><a href="/terms/">Terms</a><a href="/privacy/">Privacy</a></nav>
 </header>
 <main>
-<p class="draft" id="version">Beta draft · version 0.4 · 21 Oct 2026</p>
+<p class="draft" id="version">Beta draft · version 0.4.1 · 21 Oct 2026</p>
 <h1>Privacy</h1>
-<p class="meta">Version 0.4, published 21 October 2026 · applies to the MatchTempo beta for Apple Watch, iPhone and matchtempo.app</p>
+<p class="meta">Version 0.4.1, published 21 October 2026 · applies to the MatchTempo beta for Apple Watch, iPhone and matchtempo.app</p>
 
 <div class="note">
 <p><strong>In short:</strong></p>
@@ -101,6 +101,7 @@
 <p>A manager can choose to take payment for games in the app. Card payments, including Apple Pay and Google Pay, go through Stripe straight to the manager's own Stripe account. The manager runs the game and receives the price. We never hold the money for games; we receive only our fee, which is shown before you pay.</p>
 <p>When you pay, we keep: who paid, for which games and places, the price, our fee and the total, whether it succeeded, refunds, money carried over to later games, payments the manager marks as made outside the app, reminders sent, and Stripe's references for the payment. Stripe receives these references and the amounts, not players' names. Stripe handles your card details; we never see or keep them.</p>
 <p>A manager who takes payments gives their own identity and bank details to Stripe, not to us, and becomes Stripe's customer. We keep their Stripe account identifier and whether it is ready to take payments and pay out.</p>
+<p>Before setting up payments, a manager gives us their mobile number. We check it is theirs by sending a code by text message, and we keep the number and when it was checked. We pass it to Stripe for the manager's Stripe account, and we use it to contact the manager about payments, refunds, disputes or a problem with their group. We don't use it for marketing. We also give it to Stripe as the support phone number for the manager's payments, so Stripe may show it to players on card receipts, statements or Stripe's payment pages. The manager can change it by checking a new mobile number in the app. MatchTempo itself never shows it to players or assistant managers.</p>
 <p>The manager and assistant managers see who has paid for each game, how, what is still owed and any money carried over. You see your own payments. Other players don't see what you paid, and game links never show payments.</p>
 
 <h3>Kick-off weather</h3>
@@ -133,6 +134,7 @@
 <li><strong>Apple Health and heart rate:</strong> because you choose to turn them on. You can turn them off at any time, as above.</li>
 <li><strong>Support and complaints:</strong> to answer you and put things right.</li>
 <li><strong>Payment records:</strong> to take and refund payments, sort out mistakes and disputes, and keep the accounting records the law requires.</li>
+<li><strong>A manager's mobile number:</strong> because it is needed to set up and run payments for their group, and because we have a legitimate interest in being able to reach a manager directly about payments, disputes and problems in their group.</li>
 </ul>
 <p>We don't use your data for advertising, we don't sell it, and we don't send marketing. We don't make decisions about you that have legal or similarly serious effects. Places in a game are given out by the group's own rule, and the manager or an assistant manager can always change them.</p>
 
@@ -141,6 +143,7 @@
 <li><strong>Supabase</strong> hosts our database and sign-in service, for us and under contract. Your data is stored in London. Supabase's support staff may be able to access it from outside the UK, under contract terms that UK data protection law approves for this. Email us if you'd like to know more.</li>
 <li><strong>Apple and Google</strong> run Sign in with Apple and Google sign-in under their own privacy policies. Apple also provides Apple Health, venue search in Apple Maps, the weather forecasts and TestFlight.</li>
 <li><strong>Stripe</strong> takes card payments for managers and checks managers' identity. Stripe is responsible for how it uses payment and identity data, under <a href="https://stripe.com/gb/privacy">its own privacy policy</a>, and may handle it outside the UK.</li>
+<li><strong>Twilio</strong> sends the text message that checks a manager's mobile number, for us and under contract. It receives the number and the code, and may handle them outside the UK, under contract terms that UK data protection law approves for this.</li>
 <li><strong>Apple iCloud Mail</strong> handles email sent to our support address.</li>
 </ul>
 
@@ -161,6 +164,7 @@
 <li><strong>Records of changes in a group:</strong> 12 months. <strong>Records that stop an action happening twice:</strong> up to 90 days.</li>
 <li><strong>Technical and sign-in logs</strong> kept by our hosting and sign-in services are deleted on their own schedule, and copies in their backups are replaced in time. Email us if you'd like the current periods.</li>
 <li><strong>Payment records:</strong> 6 years after the end of the financial year they belong to, as UK accounting rules require. This applies only to payment records, not to the rest of your group's data.</li>
+<li><strong>A manager's mobile number:</strong> until they delete their account or change the number. Stripe keeps its own copy under its privacy policy, and Twilio keeps records of codes sent for a limited time.</li>
 <li><strong>Support emails:</strong> 12 months after we last heard from you, unless we need them longer to settle a complaint or dispute.</li>
 <li><strong>Weather forecasts:</strong> at most 12 hours.</li>
 <li><strong>On your devices:</strong> a recording you delete goes to Recently deleted on your iPhone for 30 days, and you can bring it back or choose Delete now. Deleting a recording doesn't remove the workout from Apple Health, a copy still on your Watch or older backups.</li>

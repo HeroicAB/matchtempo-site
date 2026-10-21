@@ -6,8 +6,8 @@ The public website: a holding page, the `/get` link, privacy and support. Plain 
 |---|---|
 | `/` | What MatchTempo is, and **Join the beta** |
 | `/get/` | The one link we share. Edit `TARGET` in `get/index.html`: the TestFlight public link during the beta, the App Store link after launch. Empty shows "not ready yet". |
-| `/terms/` | Terms of use. Beta draft, version 0.4.1. The app's sign-up links here. |
-| `/privacy/` | Privacy policy (needed for Apple Health, TestFlight and sign-up). Beta draft, version 0.4. |
+| `/terms/` | Terms of use. Beta draft, version 0.4.2. The app's sign-up links here. |
+| `/privacy/` | Privacy policy (needed for Apple Health, TestFlight and sign-up). Beta draft, version 0.4.1. |
 | `/terms/<version>/`, `/privacy/<version>/` | A frozen copy of each published version, so we can always show what someone agreed to. `/privacy/2026-10-13/` is the draft from before versions. |
 | `/support/` | Contact and common questions |
 | `/game/` | Read-only page for a shared game link (`/game/#<token>`). Copied from `web/game/` in the app repository (without `test/` and `README.md`); `config.js` holds the Supabase project URL and **publishable** key only. Update it by copying again from there. |
