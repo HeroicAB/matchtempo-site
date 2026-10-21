@@ -7,8 +7,8 @@
 <meta name="description" content="How MatchTempo handles your data.">
 <meta name="theme-color" content="#0B0B0A">
 <meta name="matchtempo:document" content="privacy">
-<meta name="matchtempo:version" content="0.3">
-<meta name="matchtempo:published" content="2026-10-18">
+<meta name="matchtempo:version" content="0.4">
+<meta name="matchtempo:published" content="2026-10-21">
 <link rel="icon" href="/assets/favicon-32.png" sizes="32x32">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="stylesheet" href="/assets/site.css?v=3">
@@ -20,16 +20,18 @@
 <nav aria-label="Site"><a href="/support/">Support</a><a href="/terms/">Terms</a><a href="/privacy/">Privacy</a></nav>
 </header>
 <main>
-<p class="draft" id="version">Beta draft · version 0.3 · 18 Oct 2026</p>
+<p class="draft" id="version">Beta draft · version 0.4 · 21 Oct 2026</p>
 <h1>Privacy</h1>
-<p class="meta">Version 0.3, published 18 October 2026 · applies to the MatchTempo beta for Apple Watch, iPhone and matchtempo.app</p>
+<p class="meta">Version 0.4, published 21 October 2026 · applies to the MatchTempo beta for Apple Watch, iPhone and matchtempo.app</p>
 
 <div class="note">
 <p><strong>In short:</strong></p>
 <ul>
 <li>Your groups see your name, who's playing, your goals and results.</li>
-<li>Your health data stays on your iPhone and Watch.</li>
-<li>Your account is kept in the UK. Delete it any time.</li>
+<li>Your recordings and health readings are not sent to our servers or shown to your groups. They are left out of iPhone backups unless you turn that on.</li>
+<li>Anyone you share a game link with can see the teams and score without signing in.</li>
+<li>If your group takes payments, Stripe handles them for the manager. We never hold the money for games.</li>
+<li>Your account is kept in London. Delete it any time.</li>
 <li>MatchTempo is for people aged 18 and over.</li>
 </ul>
 <p>Nothing is sold, and nothing is used for advertising or tracking. This is a beta draft and has not yet had a legal review.</p>
@@ -40,20 +42,20 @@
 
 <h2>Two ways to use MatchTempo</h2>
 <h3>Only recording on your Watch</h3>
-<p>You don't have to sign in to record your own games. If you don't, everything stays on your Apple Watch and iPhone and we hold nothing about you on our servers.</p>
+<p>You don't have to sign in to record your own games. Recording doesn't send your recordings or health readings to our servers. If you signed in before, signing out doesn't delete your account or your groups' history, and if you email us we keep your message as explained below.</p>
 <h3>Signed in, for groups and games</h3>
-<p>To start or join a group you sign in with Apple or Google. We then keep your account and your groups' games on our servers, so everyone in the group sees the same teams and results. Your recordings stay on your devices; only the game details below are shared.</p>
+<p>To start or join a group you sign in with Apple or Google. We then keep your account and your groups' games on our servers, so everyone in the group sees the same replies, teams and results. Your recordings and health readings stay separate from this.</p>
 
 <h2>What stays on your devices</h2>
-<p>We never see these. They stay on your Apple Watch and iPhone, and in Apple Health if you save workouts there:</p>
+<p>These are kept on your Apple Watch and iPhone, and not sent to our servers:</p>
 <ul>
 <li>heart rate, distance, calories, your route and location during a game, motion, recovery, effort and enjoyment;</li>
 <li>your max heart rate, how it was set, and your heart rate zones;</li>
-<li>your date of birth and gender, if you add them or MatchTempo reads them from Apple Health;</li>
+<li>your date of birth, if you add it or MatchTempo reads it from Apple Health, and your gender, if you add it;</li>
 <li>your recordings;</li>
 <li>a group photo you take or choose, which stays on the iPhone you added it on.</li>
 </ul>
-<p>Recordings move from your Watch to your iPhone, and your heart rate zones from your iPhone to your Watch, using Apple's own connection between the two devices.</p>
+<p>Recordings move from your Watch to your iPhone, and your heart rate zones from your iPhone to your Watch, using Apple's own connection between the two devices. Apple Health and your backups may also hold copies, as explained below. If you send us a screenshot or feedback yourself, it contains whatever you put in it, so please leave out health details unless we need them to help you.</p>
 
 <h3>Apple Health</h3>
 <p>With your permission, MatchTempo reads from Apple Health:</p>
@@ -61,19 +63,22 @@
 <li>on your Watch, your heart rate and active energy during a game, to show them live and in your summary;</li>
 <li>on your iPhone, your date of birth, your workouts from the last 12 months (including ones recorded by other apps) and the heart rate saved with them. It uses these only to estimate your max heart rate and work out your heart rate zones. If there are not enough workouts with heart rate, it estimates your max heart rate from your age. You can set it yourself instead.</li>
 </ul>
-<p>When Save to Health is on in MatchTempo, and you have allowed it, MatchTempo writes the workout, with its route, active energy and distance, to Apple Health. You can change these permissions at any time in the Health app or in Settings. Health data is never sent to our servers, never used for advertising, never sold and never shared with anyone else.</p>
+<p>When Save to Health is on in MatchTempo, and you have allowed it, MatchTempo writes the workout, with its route, active energy and distance, to Apple Health.</p>
+<p>Using Apple Health is your choice, and you can change it at any time in the Health app or in Settings. Turning it off stops MatchTempo reading or writing from then on; it doesn't remove what is already saved. Health data is never sent to our servers, never used for advertising, never sold and never shown to your groups.</p>
 
 <h3>Location, motion, Bluetooth and camera</h3>
 <p>Location is used only while you're recording, to measure distance and save your route. Motion data helps describe your movement during a recording. Bluetooth is used only to connect a heart-rate strap you choose. The camera is used only when you choose Take photo for a group picture, and the photo stays on your iPhone.</p>
+<p>When a manager searches for a venue, the search goes to Apple Maps. The venue they pick (name, address and map location) is kept with the group on our servers.</p>
 
 <h2>What we keep when you sign in</h2>
 <h3>Your account</h3>
 <ul>
 <li>Your first and last name from Apple or Google, a nickname if you add one, and which name your groups see.</li>
-<li>Your sign-in details: our sign-in service keeps the email address Apple or Google gives us (with Apple, this can be a private relay address) and an identifier for your Apple or Google account. We never ask you to type an email address. You can see the address in Personal details in the app, but not change it there. We use these only to sign you in and never show them to your groups, managers included.</li>
-<li>That you confirmed you are 18 or over, and how: through Apple's age check on your iPhone, or by ticking the box. We don't store your age or date of birth.</li>
+<li>Your sign-in details: our sign-in service keeps the email address Apple or Google gives us (with Apple, this can be a private relay address), an identifier for your Apple or Google account, any name they send, and records of when you sign in, including your IP address. We never ask you to type an email address. You can see it in Personal details in the app, but not change it there. We don't show it to your groups, managers included.</li>
+<li>That you ticked the box to confirm you are 18 or over. We don't store your age or date of birth. You sign in with Apple or Google before you tick it, so our sign-in service already has your sign-in details by then.</li>
 <li>Your agreement to the Terms and this policy: which versions, the date and time, whether you agreed in the app or a browser, and the app or site version. A new record is added each time you agree.</li>
 <li>Whether you have chosen to be left out of stats and tables.</li>
+<li>If you link two sign-ins or merge two accounts: the old and new account identifiers and when it happened, so we can tell what moved.</li>
 </ul>
 
 <h3>Your groups and games</h3>
@@ -82,80 +87,97 @@
 <li>Players: first name, last name, nickname, squad number, usual position, stronger foot and preferred side. The manager may add players who don't use the app.</li>
 <li>Games: dates, kick-off times, venues (name, address and map location), kits, team names, teams, results, scorers, own goals and Player of the Match.</li>
 <li>Replies: I'm in, Maybe or I'm out, whether you're bringing someone, and when you replied. The manager or an assistant manager can also record a reply for you.</li>
-<li>Guests: the name of a guest the manager or an assistant manager adds to one game, and who brought them.</li>
-<li>Places and the waiting list: who has a place and who is waiting is worked out from the replies each time it is shown, and is not stored. Depending on the group's choice, it goes by who replied first, games played this season, how many of the group's last 10 games each player played, the players the manager marks as regulars, or the manager's own choice. The manager or an assistant manager can always move someone in or onto the waiting list.</li>
+<li>Guests: the name of a guest added to one game, and who brought them.</li>
+<li>Places and the waiting list: who has a place and who is waiting is worked out from the replies by the group's rule: who replied first, games played this season, how many of the group's last 10 games each player played, the players the manager marks as regulars, or the manager's own choice. The manager or an assistant manager can always move someone in or onto the waiting list.</li>
 <li>After a game: whether you played, the goals you say you scored (you can bring these in from your Watch), teammates you say scored, and own goals. These carry the goal and the score, never your health data.</li>
-<li>Player of the Match votes: who you voted for.</li>
-<li>Seasons: when each season starts and ends, and which games count.</li>
+<li>Player of the Match votes: who you voted for, until 30 days after the game.</li>
+<li>Seasons and awards: when each season starts and ends, which games count, and the season awards and badges worked out from the results.</li>
 <li>Reasons and notes: the reason given when a result is corrected or a game is made void, and short notes the manager or an assistant manager adds when recording a reply or moving someone in or out.</li>
 <li>A history of changes, so a corrected result keeps the earlier one and the reason.</li>
 </ul>
+<p>Keep reasons and notes short and factual. Don't put health details, such as an injury, or anything private about someone else in them.</p>
+
+<h3>Payments for games</h3>
+<p>A manager can choose to take payment for games in the app. Card payments, including Apple Pay and Google Pay, go through Stripe straight to the manager's own Stripe account. The manager runs the game and receives the price. We never hold the money for games; we receive only our fee, which is shown before you pay.</p>
+<p>When you pay, we keep: who paid, for which games and places, the price, our fee and the total, whether it succeeded, refunds, money carried over to later games, payments the manager marks as made outside the app, reminders sent, and Stripe's references for the payment. Stripe receives these references and the amounts, not players' names. Stripe handles your card details; we never see or keep them.</p>
+<p>A manager who takes payments gives their own identity and bank details to Stripe, not to us, and becomes Stripe's customer. We keep their Stripe account identifier and whether it is ready to take payments and pay out.</p>
+<p>The manager and assistant managers see who has paid for each game, how, what is still owed and any money carried over. You see your own payments. Other players don't see what you paid, and game links never show payments.</p>
 
 <h3>Kick-off weather</h3>
-<p>If a venue has a map location, our server asks Apple Weather for the forecast at kick-off. Only the location, rounded to about 1 km, is sent to Apple, with no names or other details. We keep the forecast for at most 12 hours and never store it with results.</p>
+<p>If a venue has a map location, our server asks Apple Weather for the forecast at kick-off. Only the location, rounded to about 1 km, is sent to Apple, with no names or other details. We use a forecast for at most 12 hours and remove old ones every hour. We never store forecasts with results.</p>
 
 <h3>Logs and security</h3>
-<p>When the app or a browser talks to our servers, our hosting provider records technical logs, such as IP address, time and the request made. These are used to keep the service running and secure, and are deleted after a short period.</p>
+<p>When the app or a browser talks to our servers, our hosting and sign-in services record technical logs, such as IP address, time, the request made and any error. We also keep a record of important changes in each group, and short-lived records that stop an action happening twice if your connection drops. These use account and group identifiers rather than names, but can still relate to you. We use them to keep the service running and secure. How long each is kept is below.</p>
 
 <h2>Who sees what</h2>
 <ul>
-<li><strong>Your groups:</strong> members see players' shown names and squad numbers, who has a place in each game (and who is waiting for one more), how many have said Maybe or are out, teams, goals, results, Player of the Match, the table, seasons, and the reason a game was made void. You also see your own reply, your place and the status of goals you sent.</li>
-<li><strong>Managers and assistant managers</strong> also see each player's reply and when they replied, the waiting list in order, guests and who brought them, regulars, the notes any of them added to replies and moves, who said who scored, how many people have voted, and the past results Fair teams uses to balance the sides. Members can see who the manager and assistant managers are.</li>
+<li><strong>Your groups:</strong> members see players' shown names, squad numbers and playing preferences, who has a place in each game (and who is waiting for one more), how many have said Maybe or are out, teams, goals, results, Player of the Match, the table, seasons and awards, and the reason a result was corrected or a game was made void. You also see your own reply, your place and the status of goals you sent.</li>
+<li><strong>Managers and assistant managers</strong> also see each player's reply and when they replied, the waiting list in order, guests and who brought them, regulars, the notes any of them added to replies and moves, who said who scored, how many people have voted, payments as described above, and the past results Fair teams uses to balance the sides. Members can see who the manager and assistant managers are.</li>
 <li><strong>The manager</strong> also sees players' last names, the names they typed when adding players, players left out of stats and tables, and requests to join or rejoin the group. Assistant managers don't see these: they see the same names as other members.</li>
-<li><strong>Player of the Match votes are secret.</strong> Nobody can see who voted for whom, managers included. Only the winner is shown.</li>
-<li><strong>Anyone with a group's join link:</strong> the manager can share a link that lets people join the group. Someone who signs in and opens it sees the group's name and its current players' shown names, so they can pick which one is them. The manager can turn the link off at any time.</li>
-<li><strong>Anyone with a game link:</strong> the manager or an assistant manager can share a link to a game. Anyone holding it can see, without signing in, the group's name, the date and kick-off time, the venue (name, pitch, address and map location), the team names and kits, the players' shown names in each team, the score, the scorers, own goals, Player of the Match, the kick-off weather and whether the game was made void. It doesn't show replies, last names or the reason a game was made void. Links stop working 30 days after kick-off, and the manager or an assistant manager can turn a link off sooner. To have a link removed, ask your manager or email us.</li>
+<li><strong>Player of the Match votes</strong> are hidden from other players, the manager and assistant managers. You can see your own vote. Only the winner is shown. Individual votes are stored on our servers, so we could see them if we needed to look into a problem, and they are deleted 30 days after the game.</li>
+<li><strong>Anyone with a group's join link:</strong> the manager can share a link that lets people join the group. Someone who signs in and opens it sees the group's name and its current players' shown names, and can pick which one is them straight away, without waiting for the manager. A link stops working 30 days after it was made. The manager can turn it off sooner or make a new one, which replaces the old one.</li>
+<li><strong>Anyone with a game link:</strong> the manager or an assistant manager can share a link to a game. Anyone holding it can see, without signing in, the group's name, the date and kick-off time, the venue and pitch names, the team names and kits, the players' shown names in each team, the score, the scorers, own goals, Player of the Match, the kick-off weather and whether the game was made void. Until the game ends, it also shows the venue's address and map location. It doesn't show replies, last names, payments or the reason a game was made void. A link stops working 30 days after kick-off (or 30 days after it was made, if that is later), and the manager or an assistant manager can turn it off sooner. Links can be forwarded, so share them only with the people who need them. To have a link removed, ask your manager or email us.</li>
 <li><strong>Directions:</strong> if you tap Directions on a game, the venue's address or map location opens in the maps app you pick (Apple Maps, Google Maps or Waze), and that company's privacy policy applies. We don't send anything to them ourselves.</li>
-<li><strong>Stats and tables:</strong> if you turn off "Show me in stats and tables", you are left out of the table and stats for all your groups. You still appear in teams and as a scorer.</li>
+<li><strong>Stats and tables:</strong> if you turn off "Show me in stats and tables", you are left out of the table, stats and awards for all your groups. You still appear in teams and as a scorer, and your games still count for your teammates. A manager can do the same for a player who doesn't use the app. This doesn't hide you from game links or remove past games.</li>
 <li><strong>What you share yourself:</strong> when you share teams or results through the iPhone share sheet, they go to the app you pick, such as WhatsApp or Messages, and that app's privacy policy applies.</li>
 </ul>
 
+<h2>Players who don't use the app</h2>
+<p>A manager can add players and guests who don't use MatchTempo. If you do this, tell them first what the group and anyone with a game link can see, point them to this page, and add only what the game needs, such as a first name. They can ask the manager to leave them out of stats or remove them, or email us directly, without needing an account. Removing a player doesn't change games they have already played.</p>
+
 <h2>Why we use your data</h2>
 <ul>
-<li><strong>To run MatchTempo for you</strong> (your account, groups, replies, places, games, goals, votes and tables): because it is needed for our agreement with you.</li>
-<li><strong>Players and guests added by a manager or assistant manager, their notes, join links, game links, logs and security:</strong> because we and the group's manager have a legitimate interest in running the group's games and keeping MatchTempo safe, and this has little effect on the people involved.</li>
-<li><strong>Your agreement records:</strong> to show what you agreed to and when.</li>
-<li><strong>Letting assistant managers see replies, guests, notes and goal claims:</strong> because the group has a legitimate interest in sharing the work of running its games. They see only what they need to run games, not last names or player admin, and the role ends when the manager removes them or they leave.</li>
+<li><strong>To run MatchTempo for you</strong> (your account, groups, replies, places, games, goals, votes, tables and payments you make): because it is needed for our agreement with you.</li>
+<li><strong>Players and guests added by a manager, notes, join links, game links and letting assistant managers help:</strong> because we and the group have a legitimate interest in running the group's games. We keep what is shared to what the game needs, and anyone can object by asking the manager or emailing us.</li>
+<li><strong>Logs, security, agreement records, account merges and preventing mistakes or fraud:</strong> because we have a legitimate interest in keeping MatchTempo working, safe and fair.</li>
+<li><strong>Apple Health and heart rate:</strong> because you choose to turn them on. You can turn them off at any time, as above.</li>
+<li><strong>Support and complaints:</strong> to answer you and put things right.</li>
+<li><strong>Payment records:</strong> to take and refund payments, sort out mistakes and disputes, and keep the accounting records the law requires.</li>
 </ul>
 <p>We don't use your data for advertising, we don't sell it, and we don't send marketing. We don't make decisions about you that have legal or similarly serious effects. Places in a game are given out by the group's own rule, and the manager or an assistant manager can always change them.</p>
 
 <h2>Who helps us</h2>
-<p>These companies process data for us under contract, only to provide their service:</p>
 <ul>
-<li><strong>Supabase</strong> hosts our database and sign-in service. Your data is stored in London. Supabase's support staff may be able to access it from outside the UK, under the safeguards UK data protection law requires.</li>
-<li><strong>Apple and Google</strong> run Sign in with Apple and Google sign-in. Apple also provides the weather forecasts and TestFlight.</li>
-<li><strong>Our payment provider</strong> will take payments for Group Pro after the beta. Nothing is charged during the beta.</li>
+<li><strong>Supabase</strong> hosts our database and sign-in service, for us and under contract. Your data is stored in London. Supabase's support staff may be able to access it from outside the UK, under contract terms that UK data protection law approves for this. Email us if you'd like to know more.</li>
+<li><strong>Apple and Google</strong> run Sign in with Apple and Google sign-in under their own privacy policies. Apple also provides Apple Health, venue search in Apple Maps, the weather forecasts and TestFlight.</li>
+<li><strong>Stripe</strong> takes card payments for managers and checks managers' identity. Stripe is responsible for how it uses payment and identity data, under <a href="https://stripe.com/gb/privacy">its own privacy policy</a>, and may handle it outside the UK.</li>
 <li><strong>Apple iCloud Mail</strong> handles email sent to our support address.</li>
 </ul>
 
 <h2>Testing through TestFlight</h2>
-<p>During the beta, Apple's TestFlight may share crash reports, basic device information (such as model and software version) and any feedback or screenshots you choose to send with us. Apple's privacy policy covers how Apple handles this.</p>
+<p>During the beta, Apple's TestFlight may share crash reports, basic device information (such as model and software version) and any feedback or screenshots you choose to send with us. A screenshot can show personal or health details, so check it before you send it. Apple's privacy policy covers how Apple handles this.</p>
 
 <h2>Backups</h2>
-<p>Your recordings are stored on your iPhone and, unless you turn this off in Settings, included in your iPhone's iCloud or computer backups. Those backups are handled by Apple under your own Apple account, not by us.</p>
+<p>Your recordings are left out of your iPhone's iCloud or computer backups unless you turn on "Include recordings in iPhone backups" in Settings. Your heart rate history is always left out. Backups are handled by Apple under your own Apple account, not by us. Turning the setting off doesn't remove recordings from backups made before, and Apple Health keeps its own copies under your Health settings.</p>
 
 <h2>How long we keep data</h2>
 <ul>
-<li><strong>Your account:</strong> until you delete it. You can delete it at any time in the app, in You. This removes your account, your sign-in details and your agreement records.</li>
-<li><strong>Your groups' history:</strong> results, replies, goals, votes, void games and their reasons stay with the group after you leave or delete your account, so the table and past games still add up. When you delete your account, your player entry is no longer linked to you and your last name is removed; past games keep the name your groups saw. If you are the manager, the app asks you to hand the group over first, or archives it. If you are an assistant manager, you stop being one.</li>
-<li><strong>Join links:</strong> until the manager turns the link off or the group is archived.</li>
-<li><strong>Game links:</strong> 30 days after kick-off.</li>
+<li><strong>Your account:</strong> until you delete it in the app, in You. This removes your account, your sign-in details and your agreement records. Signing out doesn't delete anything.</li>
+<li><strong>Your groups' history:</strong> results, replies, goals, awards, corrected results, void games and their reasons stay with the group after you leave or delete your account, so the table and past games still add up. When you delete your account, your player entries are no longer linked to you, and your last name, the name the manager typed for you and any nickname you weren't showing are removed. Past games keep your first name or shown nickname, as they appeared then. If that worries you, email us.</li>
+<li><strong>Player of the Match votes:</strong> 30 days after the game. The winner stays.</li>
+<li><strong>Notes on replies and moves:</strong> 30 days after kick-off.</li>
+<li><strong>Archived groups</strong> are kept: archiving is not deleting. <strong>Deleted groups:</strong> their links stop at once; members can bring a group back for 60 days, and then it is deleted.</li>
+<li><strong>Join links:</strong> 30 days after they are made. <strong>Game links:</strong> 30 days after kick-off, or after they are made if that is later.</li>
+<li><strong>Records of changes in a group:</strong> 12 months. <strong>Records that stop an action happening twice:</strong> up to 90 days.</li>
+<li><strong>Technical and sign-in logs</strong> kept by our hosting and sign-in services are deleted on their own schedule, and copies in their backups are replaced in time. Email us if you'd like the current periods.</li>
+<li><strong>Payment records:</strong> 6 years after the end of the financial year they belong to, as UK accounting rules require. This applies only to payment records, not to the rest of your group's data.</li>
+<li><strong>Support emails:</strong> 12 months after we last heard from you, unless we need them longer to settle a complaint or dispute.</li>
 <li><strong>Weather forecasts:</strong> at most 12 hours.</li>
-<li><strong>On your devices:</strong> until you delete the recording or the app. Deleting a recording in MatchTempo never removes the workout from Apple Health.</li>
+<li><strong>On your devices:</strong> a recording you delete goes to Recently deleted on your iPhone for 30 days, and you can bring it back or choose Delete now. Deleting a recording doesn't remove the workout from Apple Health, a copy still on your Watch or older backups.</li>
 </ul>
 
 <h2>Age</h2>
-<p>MatchTempo is for people aged 18 and over. If you tell us you're under 18, or Apple's age check says so, sign-up stops and nothing is sent to our servers. If you think someone under 18 has an account, please email us and we'll delete it.</p>
+<p>MatchTempo is for people aged 18 and over. Don't add anyone under 18 as a player or guest during the beta. If you think someone under 18 has an account or has been added to a group, please email us and we'll remove them.</p>
 
 <h2>Cookies</h2>
-<p>The app and matchtempo.app set no cookies and use no analytics or tracking.</p>
+<p>We don't use analytics, advertising or tracking. The game page and matchtempo.app set no cookies. The app keeps what it needs to work, such as your sign-in, on your device. Apple and Google's sign-in pages have their own policies.</p>
 
 <h2>Your rights</h2>
-<p>You have rights under UK data protection law, including to get a copy of your data, to correct it, to have it deleted, and to object to how we use it. You can do much of this yourself in the app. For anything else, or for a copy of your data, email <a class="email" data-user="support" data-host="matchtempo app">support at matchtempo dot app</a>. If a manager or assistant manager added you or a guest to a group and you don't use the app, you can email us too.</p>
-<p>If you're unhappy with how we've handled your data, you can complain to the Information Commissioner's Office at <a href="https://ico.org.uk">ico.org.uk</a>.</p>
+<p>You have rights under UK data protection law, including to get a copy of your data, to correct it, to have it deleted, to limit how we use it and to object to how we use it. These rights have some legal limits, and if we can't do what you ask, we'll tell you why. You can do much of this yourself in the app. For anything else, or for a copy of your data, email <a class="email" data-user="support" data-host="matchtempo app">support at matchtempo dot app</a>. If a manager added you or a guest to a group and you don't use the app, you can email us too.</p>
+<p>If you're unhappy with how we've handled your data, email us. We'll confirm we have your complaint within 30 days, look into it, keep you updated and tell you the outcome as soon as we can. You can also complain to the Information Commission, the UK's data protection regulator (formerly the ICO), at <a href="https://ico.org.uk">ico.org.uk</a>.</p>
 
 <h2>Changes to this policy</h2>
-<p>Each version of this policy has a number and a date, shown at the top of this page. For a big change, the app will tell you what has changed and ask you to agree again the next time you open Play, before anything new is collected. Small changes, such as clearer wording, only update the date and version.</p>
+<p>Each version of this policy has a number and a date, shown at the top of this page. For a big change, the app will tell you what has changed and ask you to agree again the next time you open Play. Small changes, such as clearer wording, only update the date and version.</p>
 
 </main>
 <footer>
