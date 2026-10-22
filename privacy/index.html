@@ -7,7 +7,7 @@
 <meta name="description" content="How MatchTempo handles your data.">
 <meta name="theme-color" content="#0B0B0A">
 <meta name="matchtempo:document" content="privacy">
-<meta name="matchtempo:version" content="0.4.2">
+<meta name="matchtempo:version" content="0.5">
 <meta name="matchtempo:published" content="2026-10-22">
 <link rel="icon" href="/assets/favicon-32.png" sizes="32x32">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
@@ -20,9 +20,9 @@
 <nav aria-label="Site"><a href="/support/">Support</a><a href="/terms/">Terms</a><a href="/privacy/">Privacy</a></nav>
 </header>
 <main>
-<p class="draft" id="version">Beta draft · version 0.4.2 · 22 Oct 2026</p>
+<p class="draft" id="version">Beta draft · version 0.5 · 22 Oct 2026</p>
 <h1>Privacy</h1>
-<p class="meta">Version 0.4.2, published 22 October 2026 · applies to the MatchTempo beta for Apple Watch, iPhone and matchtempo.app</p>
+<p class="meta">Version 0.5, published 22 October 2026 · applies to the MatchTempo beta for Apple Watch, iPhone and matchtempo.app</p>
 
 <div class="note">
 <p><strong>In short:</strong></p>
@@ -32,7 +32,7 @@
 <li>Anyone you share a game link with can see the teams and score without signing in.</li>
 <li>If your group takes payments, Stripe handles them for the manager. We never hold the money for games.</li>
 <li>Your account is kept in London. Delete it any time.</li>
-<li>MatchTempo is for people aged 18 and over.</li>
+<li>You must be 18 or over to have an account. A parent or guardian can add their child who is under 18 as a player. We keep as little as we can about a child, and never their name outside their groups.</li>
 </ul>
 <p>Nothing is sold, and nothing is used for advertising or tracking. This is a beta draft and has not yet had a legal review.</p>
 </div>
@@ -78,13 +78,14 @@
 <li>That you ticked the box to confirm you are 18 or over. We don't store your age or date of birth. You sign in with Apple or Google before you tick it, so our sign-in service already has your sign-in details by then. If your iPhone shares an age range from Apple, we only record that Apple confirmed you are 18 or over.</li>
 <li>Your agreement to the Terms and this policy: which versions, the date and time, whether you agreed in the app or a browser, and the app or site version. A new record is added each time you agree.</li>
 <li>Whether you have chosen to be left out of stats and tables.</li>
+<li>If you add a child as a player you look after: that you confirmed you are their parent or guardian, and when. What we keep about the child is explained in <a href="#children">Children</a>.</li>
 <li>If you link two sign-ins or merge two accounts: the old and new account identifiers and when it happened, so we can tell what moved.</li>
 </ul>
 
 <h3>Your groups and games</h3>
 <ul>
-<li>Groups: name, manager, assistant managers, members and settings, such as how many players a game takes, even sides, reply and drop-out times, how places are given out, seasons and how goals are checked.</li>
-<li>Players: first name, last name, nickname, squad number, usual position, stronger foot and preferred side. The manager may add players who don't use the app.</li>
+<li>Groups: name, manager, assistant managers, members and settings, such as how many players a game takes, the minimum age, even sides, reply and drop-out times, how places are given out, seasons and how goals are checked.</li>
+<li>Players: first name, last name, nickname, squad number, usual position, stronger foot and preferred side. The manager may add players who don't use the app, and a parent or guardian may add a child they look after (see <a href="#children">Children</a>).</li>
 <li>Games: dates, kick-off times, venues (name, address and map location), kits, team names, teams, results, scorers, own goals and Player of the Match.</li>
 <li>Replies: I'm in, Maybe or I'm out, whether you're bringing someone, and when you replied. The manager or an assistant manager can also record a reply for you.</li>
 <li>Guests: the name of a guest added to one game, and who brought them.</li>
@@ -102,6 +103,7 @@
 <p>When you pay, we keep: who paid, for which games and places, the price, our fee and the total, whether it succeeded, refunds, money carried over to later games, payments the manager marks as made outside the app, reminders sent, and Stripe's references for the payment. Stripe receives these references and the amounts, not players' names. Stripe handles your card details; we never see or keep them.</p>
 <p>A manager who takes payments gives their own identity and bank details to Stripe, not to us, and becomes Stripe's customer. We keep their Stripe account identifier and whether it is ready to take payments and pay out.</p>
 <p>Before setting up payments, a manager gives us their mobile number. We check it is theirs by sending a code by text message, and we keep the number and when it was checked. We pass it to Stripe for the manager's Stripe account, and we use it to contact the manager about payments, refunds, disputes or a problem with their group. We don't use it for marketing. We also give it to Stripe as the support phone number for the manager's payments, so Stripe may show it to players on card receipts, statements or Stripe's payment pages. The manager can change it by checking a new mobile number in the app. MatchTempo itself never shows it to players or assistant managers.</p>
+<p>A parent or guardian pays for the children they look after. Those payments are kept under the parent's account, as their own payments, and the manager sees who paid.</p>
 <p>The manager and assistant managers see who has paid for each game, how, what is still owed and any money carried over. You see your own payments. Other players don't see what you paid, and game links never show payments.</p>
 
 <h3>Kick-off weather</h3>
@@ -112,15 +114,16 @@
 
 <h2>Who sees what</h2>
 <ul>
-<li><strong>Your groups:</strong> members see players' shown names, squad numbers and playing preferences, who has a place in each game (and who is waiting for one more), how many have said Maybe or are out, teams, goals, results, Player of the Match, the table, seasons and awards, and the reason a result was corrected or a game was made void. You also see your own reply, your place and the status of goals you sent.</li>
+<li><strong>Your groups:</strong> members see players' shown names, squad numbers and playing preferences, an "U18" marker next to a child's name, who has a place in each game (and who is waiting for one more), how many have said Maybe or are out, teams, goals, results, Player of the Match, the table, seasons and awards, and the reason a result was corrected or a game was made void. You also see your own reply, your place and the status of goals you sent.</li>
 <li><strong>Managers and assistant managers</strong> also see each player's reply and when they replied, the waiting list in order, guests and who brought them, regulars, the notes any of them added to replies and moves, who said who scored, how many people have voted, payments as described above, and the past results Fair teams uses to balance the sides. Members can see who the manager and assistant managers are.</li>
 <li><strong>The manager</strong> also sees players' last names, the names they typed when adding players, players left out of stats and tables, and requests to join or rejoin the group. Assistant managers don't see these: they see the same names as other members.</li>
+<li><strong>Children:</strong> the manager and assistant managers also see a child's last name, if the parent added one, and which parent looks after them. Only the parent sees the child's year of birth.</li>
 <li><strong>Player of the Match votes</strong> are hidden from other players, the manager and assistant managers. You can see your own vote. Only the winner is shown. Individual votes are stored on our servers, so we could see them if we needed to look into a problem, and they are deleted 30 days after the game.</li>
 <li><strong>Anyone with a group's join link:</strong> the manager can share a link that lets people join the group. Someone who signs in and opens it sees the group's name and its current players' shown names, and can pick which one is them straight away, without waiting for the manager. A link stops working 30 days after it was made. The manager can turn it off sooner or make a new one, which replaces the old one.</li>
-<li><strong>Anyone with a game link:</strong> the manager or an assistant manager can share a link to a game. Anyone holding it can see, without signing in, the group's name, the date and kick-off time, the venue and pitch names, the team names and kits, the players' shown names in each team, the score, the scorers, own goals, Player of the Match, the kick-off weather and whether the game was made void. Until the game ends, it also shows the venue's address and map location. It doesn't show replies, last names, payments or the reason a game was made void. A link stops working 30 days after kick-off (or 30 days after it was made, if that is later), and the manager or an assistant manager can turn it off sooner. Links can be forwarded, so share them only with the people who need them. To have a link removed, ask your manager or email us.</li>
+<li><strong>Anyone with a game link:</strong> the manager or an assistant manager can share a link to a game. Anyone holding it can see, without signing in, the group's name, the date and kick-off time, the venue and pitch names, the team names and kits, the players' shown names in each team (a child is shown only as "Under-18 player"), the score, the scorers, own goals, Player of the Match, the kick-off weather and whether the game was made void. Until the game ends, it also shows the venue's address and map location. It doesn't show replies, last names, payments or the reason a game was made void. A link stops working 30 days after kick-off (or 30 days after it was made, if that is later), and the manager or an assistant manager can turn it off sooner. Links can be forwarded, so share them only with the people who need them. To have a link removed, ask your manager or email us.</li>
 <li><strong>Directions:</strong> if you tap Directions on a game, the venue's address or map location opens in the maps app you pick (Apple Maps, Google Maps or Waze), and that company's privacy policy applies. We don't send anything to them ourselves.</li>
 <li><strong>Stats and tables:</strong> if you turn off "Show me in stats and tables", you are left out of the table, stats and awards for all your groups. You still appear in teams and as a scorer, and your games still count for your teammates. A manager can do the same for a player who doesn't use the app. This doesn't hide you from game links or remove past games.</li>
-<li><strong>What you share yourself:</strong> when you share teams or results through the iPhone share sheet, they go to the app you pick, such as WhatsApp or Messages, and that app's privacy policy applies.</li>
+<li><strong>What you share yourself:</strong> when you share teams or results through the iPhone share sheet, they go to the app you pick, such as WhatsApp or Messages, and that app's privacy policy applies. Share images and share text show a child only as "Under-18 player".</li>
 </ul>
 
 <h2>Players who don't use the app</h2>
@@ -134,6 +137,7 @@
 <li><strong>Apple Health and heart rate:</strong> because you choose to turn them on. You can turn them off at any time, as above.</li>
 <li><strong>Support and complaints:</strong> to answer you and put things right.</li>
 <li><strong>Payment records:</strong> to take and refund payments, sort out mistakes and disputes, and keep the accounting records the law requires.</li>
+<li><strong>Children added by a parent or guardian:</strong> because the parent, the group and we have a legitimate interest in letting the child play in the group's games, at the parent's request. A child's data needs extra care, so we keep only what the games need, show no name outside the group and keep no contact or health details.</li>
 <li><strong>A manager's mobile number:</strong> because it is needed to set up and run payments for their group, and because we have a legitimate interest in being able to reach a manager directly about payments, disputes and problems in their group.</li>
 </ul>
 <p>We don't use your data for advertising, we don't sell it, and we don't send marketing. We don't make decisions about you that have legal or similarly serious effects. Places in a game are given out by the group's own rule, and the manager or an assistant manager can always change them.</p>
@@ -157,6 +161,7 @@
 <ul>
 <li><strong>Your account:</strong> until you delete it in the app, in You. This removes your account, your sign-in details and your agreement records. Signing out doesn't delete anything.</li>
 <li><strong>Your groups' history:</strong> results, replies, goals, awards, corrected results, void games and their reasons stay with the group after you leave or delete your account, so the table and past games still add up. When you delete your account, your player entries are no longer linked to you, and your last name, the name the manager typed for you and any nickname you weren't showing are removed. Past games keep your first name or shown nickname, as they appeared then. If that worries you, email us.</li>
+<li><strong>A child you look after:</strong> until you remove them, or until you delete your account. Then their first name, last name and year of birth are deleted, and past games show "Removed player". If they take over their place when they turn 18, their year of birth is deleted and the rest becomes part of their own account.</li>
 <li><strong>Player of the Match votes:</strong> 30 days after the game. The winner stays.</li>
 <li><strong>Notes on replies and moves:</strong> 30 days after kick-off.</li>
 <li><strong>Archived groups</strong> are kept: archiving is not deleting. <strong>Deleted groups:</strong> their links stop at once; members can bring a group back for 60 days, and then it is deleted.</li>
@@ -170,8 +175,20 @@
 <li><strong>On your devices:</strong> a recording you delete goes to Recently deleted on your iPhone for 30 days, and you can bring it back or choose Delete now. Deleting a recording doesn't remove the workout from Apple Health, a copy still on your Watch or older backups.</li>
 </ul>
 
-<h2>Age</h2>
-<p>MatchTempo is for people aged 18 and over. Don't add anyone under 18 as a player or guest during the beta. If you think someone under 18 has an account or has been added to a group, please email us and we'll remove them.</p>
+<h2 id="children">Children</h2>
+<p>You must be 18 or over to have an account. Children under 18 can't sign in, and we never ask them for anything. A parent or guardian can add their child as a player they look after, from You in the app. The child can then play in the parent's groups whose minimum age they meet, once the manager or an assistant manager says yes. Each group is for people aged 18 and over unless its manager chooses a lower minimum age.</p>
+<p>About a child, we keep:</p>
+<ul>
+<li>their first name, and their last name if the parent adds it;</li>
+<li>their year of birth, which only the parent sees. We use it to work out whether the child is under 18 and whether they meet a group's minimum age. A child counts as under 18 until the end of the year they turn 18;</li>
+<li>which parent or guardian looks after them;</li>
+<li>their replies, places, teams, goals, Player of the Match and table entries, as for any player. The parent replies and claims goals for them. A child can be voted Player of the Match, but doesn't vote.</li>
+</ul>
+<p>We don't keep a child's email address, phone number, photo, health or Watch data, or notes about them. The parent's Watch records only the parent. Messages about a child, such as a place or a team, go to the parent and use the child's first name only. Nothing is sent to the child.</p>
+<p>Group members see the child's shown name with an "U18" marker. The manager and assistant managers also see their last name and their parent. Game links, share images and share text show the child only as "Under-18 player", never their name.</p>
+<p>The parent can remove a child at any time. This deletes the child's first name, last name and year of birth, and past games show "Removed player". Deleting the parent's account does the same. A manager can take a child out of their own group only. Payments the parent made are kept under the parent's account for the time shown above.</p>
+<p>From 1 January of the year a child turns 18, the parent can send them a one-time link, which works for 30 days. The young person signs in with their own Apple or Google account and confirms they are 18 or over, as any new account does. They then take over the same player, with their name, places, games, goals, awards and table points. Their year of birth is deleted. Payments the parent made stay in the parent's payment history. If the sign-up shows they are still under 18, nothing moves.</p>
+<p>A parent can use the rights below for their child, and so can the child. If you think someone under 18 has an account, or has been added to a group other than by their parent, please email us and we'll remove them.</p>
 
 <h2>Cookies</h2>
 <p>We don't use analytics, advertising or tracking. The game page and matchtempo.app set no cookies. The app keeps what it needs to work, such as your sign-in, on your device. Apple and Google's sign-in pages have their own policies.</p>
