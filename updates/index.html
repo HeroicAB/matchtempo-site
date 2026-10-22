@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Get updates · MatchTempo</title>
+<meta name="description" content="Get an email when the MatchTempo beta opens.">
+<meta name="theme-color" content="#0B0B0A">
+<link rel="icon" href="/assets/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="stylesheet" href="/assets/site.css?v=4">
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+<a href="/" aria-label="MatchTempo home"><img src="/assets/matchtempo-wordmark-on-dark.svg" alt="MatchTempo" width="78" height="56"></a>
+<nav aria-label="Site"><a href="/support/">Support</a><a href="/terms/">Terms</a><a href="/privacy/">Privacy</a></nav>
+</header>
+<main>
+<h1>Get updates</h1>
+<p class="lead">An email when the beta opens, and now and then when there's news.</p>
+
+<!-- The form posts straight to Brevo, which sends a confirmation email (double opt-in).
+     No Brevo script is loaded, so matchtempo.app still sets no cookies.
+     Set action to the form URL from Brevo (Forms > the form > Share > HTML code, the
+     https://....sibforms.com/serve/... address). Leave it as "#" to show "not open yet". -->
+<form id="signup" class="signup" method="post" action="#">
+<label for="EMAIL">Email address</label>
+<div class="row">
+<input type="email" id="EMAIL" name="EMAIL" autocomplete="email" required>
+<button class="btn" type="submit">Sign up</button>
+</div>
+<input type="text" name="email_address_check" value="" tabindex="-1" autocomplete="off" aria-hidden="true" class="hp">
+<input type="hidden" name="locale" value="en">
+<p class="meta">We'll email you to confirm. Every email has an unsubscribe link. <a href="/privacy/">Privacy</a></p>
+</form>
+<p class="lead" id="status" role="status" hidden></p>
+</main>
+<footer>
+<span>© 2026 MatchTempo</span>
+<a href="/support/">Support</a>
+<a href="/terms/">Terms</a>
+<a href="/privacy/">Privacy</a>
+</footer>
+</div>
+<script>
+(function () {
+  var form = document.getElementById('signup');
+  var status = document.getElementById('status');
+  function say(text) { status.textContent = text; status.hidden = false; }
+  if (form.getAttribute('action') === '#') {
+    form.hidden = true;
+    say('Sign-up isn\'t open yet. Check back soon.');
+    return;
+  }
+  form.addEventListener('submit', function (e) {
+    if (!window.fetch) return;
+    e.preventDefault();
+    var data = new FormData(form);
+    data.append('isAjax', '1');
+    form.querySelector('button').disabled = true;
+    fetch(form.action, { method: 'POST', body: data })
+      .then(function (r) { return r.json(); })
+      .then(function (j) {
+        if (j && j.success) {
+          form.hidden = true;
+          say('Nearly done. Check your inbox and tap the link to confirm.');
+        } else {
+          form.querySelector('button').disabled = false;
+          say('That didn\'t work. Check the address and try again.');
+        }
+      })
+      .catch(function () { form.submit(); });
+  });
+})();
+</script>
+</body>
+</html>
