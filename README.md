@@ -7,7 +7,7 @@ The public website: a holding page, the `/get` link, privacy and support. Plain 
 | `/` | What MatchTempo is, and **Join the beta** |
 | `/get/` | The one link we share. Edit `TARGET` in `get/index.html`: the TestFlight public link during the beta, the App Store link after launch. Empty shows "not ready yet". |
 | `/terms/` | Terms of use. Beta draft, version 0.5. The app's sign-up links here. |
-| `/privacy/` | Privacy policy (needed for Apple Health, TestFlight and sign-up). Beta draft, version 0.5. |
+| `/privacy/` | Privacy policy (needed for Apple Health, TestFlight and sign-up). Beta draft, version 0.5.1. |
 | `/terms/<version>/`, `/privacy/<version>/` | A frozen copy of each published version, so we can always show what someone agreed to. `/privacy/2026-10-13/` is the draft from before versions. |
 | `/support/` | Contact and common questions |
 | `/updates/` | Sign up for email updates. The form posts to Brevo (double opt-in, no Brevo script, no cookies). The Brevo form address is in the form's `action`; `#` shows "not open yet". `/updates/thanks/` is the page Brevo's confirmation email sends people to. |
