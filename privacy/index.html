@@ -7,7 +7,7 @@
 <meta name="description" content="How MatchTempo handles your data.">
 <meta name="theme-color" content="#0B0B0A">
 <meta name="matchtempo:document" content="privacy">
-<meta name="matchtempo:version" content="0.5">
+<meta name="matchtempo:version" content="0.5.1">
 <meta name="matchtempo:published" content="2026-10-22">
 <link rel="icon" href="/assets/favicon-32.png" sizes="32x32">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
@@ -20,9 +20,9 @@
 <nav aria-label="Site"><a href="/support/">Support</a><a href="/terms/">Terms</a><a href="/privacy/">Privacy</a></nav>
 </header>
 <main>
-<p class="draft" id="version">Beta draft · version 0.5 · 22 Oct 2026</p>
+<p class="draft" id="version">Beta draft · version 0.5.1 · 22 Oct 2026</p>
 <h1>Privacy</h1>
-<p class="meta">Version 0.5, published 22 October 2026 · applies to the MatchTempo beta for Apple Watch, iPhone and matchtempo.app</p>
+<p class="meta">Version 0.5.1, published 22 October 2026 · applies to the MatchTempo beta for Apple Watch, iPhone and matchtempo.app</p>
 
 <div class="note">
 <p><strong>In short:</strong></p>
@@ -32,6 +32,7 @@
 <li>Anyone you share a game link with can see the teams and score without signing in.</li>
 <li>If your group takes payments, Stripe handles them for the manager. We never hold the money for games.</li>
 <li>Your account is kept in London. Delete it any time.</li>
+<li>If you sign up for updates on our website, we email you only about MatchTempo, until you unsubscribe.</li>
 <li>You must be 18 or over to have an account. A parent or guardian can add their child who is under 18 as a player. We keep as little as we can about a child, and never their name outside their groups.</li>
 </ul>
 <p>Nothing is sold, and nothing is used for advertising or tracking. This is a beta draft and has not yet had a legal review.</p>
@@ -129,18 +130,23 @@
 <h2>Players who don't use the app</h2>
 <p>A manager can add players and guests who don't use MatchTempo. If you do this, tell them first what the group and anyone with a game link can see, point them to this page, and add only what the game needs, such as a first name. They can ask the manager to leave them out of stats or remove them, or email us directly, without needing an account. Removing a player doesn't change games they have already played.</p>
 
+<h2 id="updates">Email updates</h2>
+<p>You can sign up on <a href="/updates/">matchtempo.app/updates</a> for an email when the beta opens and, now and then, news about MatchTempo. This is separate from your MatchTempo account, and you don't need an account to sign up.</p>
+<p>We ask only for your email address. Brevo, our email service, sends you an email to confirm it, and keeps a record of when you signed up and confirmed, and the IP address you used, as proof that you asked. Every email has an unsubscribe link. We don't track whether you open our emails or click their links, and the sign-up form loads nothing from Brevo, so it sets no cookies.</p>
+
 <h2>Why we use your data</h2>
 <ul>
 <li><strong>To run MatchTempo for you</strong> (your account, groups, replies, places, games, goals, votes, tables and payments you make): because it is needed for our agreement with you.</li>
 <li><strong>Players and guests added by a manager, notes, join links, game links and letting assistant managers help:</strong> because we and the group have a legitimate interest in running the group's games. We keep what is shared to what the game needs, and anyone can object by asking the manager or emailing us.</li>
 <li><strong>Logs, security, agreement records, account merges and preventing mistakes or fraud:</strong> because we have a legitimate interest in keeping MatchTempo working, safe and fair.</li>
 <li><strong>Apple Health and heart rate:</strong> because you choose to turn them on. You can turn them off at any time, as above.</li>
+<li><strong>Email updates:</strong> because you asked for them. You can stop them at any time with the unsubscribe link in any email.</li>
 <li><strong>Support and complaints:</strong> to answer you and put things right.</li>
 <li><strong>Payment records:</strong> to take and refund payments, sort out mistakes and disputes, and keep the accounting records the law requires.</li>
 <li><strong>Children added by a parent or guardian:</strong> because the parent, the group and we have a legitimate interest in letting the child play in the group's games, at the parent's request. A child's data needs extra care, so we keep only what the games need, show no name outside the group and keep no contact or health details.</li>
 <li><strong>A manager's mobile number:</strong> because it is needed to set up and run payments for their group, and because we have a legitimate interest in being able to reach a manager directly about payments, disputes and problems in their group.</li>
 </ul>
-<p>We don't use your data for advertising, we don't sell it, and we don't send marketing. We don't make decisions about you that have legal or similarly serious effects. Places in a game are given out by the group's own rule, and the manager or an assistant manager can always change them.</p>
+<p>We don't use your data for advertising, we don't sell it, and we don't send marketing, apart from the email updates you sign up for. We don't make decisions about you that have legal or similarly serious effects. Places in a game are given out by the group's own rule, and the manager or an assistant manager can always change them.</p>
 
 <h2>Who helps us</h2>
 <ul>
@@ -149,6 +155,7 @@
 <li><strong>Stripe</strong> takes card payments for managers and checks managers' identity. Stripe is responsible for how it uses payment and identity data, under <a href="https://stripe.com/gb/privacy">its own privacy policy</a>, and may handle it outside the UK.</li>
 <li><strong>Twilio</strong> sends the text message that checks a manager's mobile number, for us and under contract. It receives the number and the code, and may handle them outside the UK, under contract terms that UK data protection law approves for this.</li>
 <li><strong>Apple iCloud Mail</strong> handles email sent to our support address.</li>
+<li><strong>Brevo</strong> (Sendinblue SAS, France) keeps the list of people who signed up for email updates and sends those emails, for us and under contract. It stores the data in the EU, which UK data protection law treats as giving adequate protection.</li>
 </ul>
 
 <h2>Testing through TestFlight</h2>
@@ -170,6 +177,7 @@
 <li><strong>Technical and sign-in logs</strong> kept by our hosting and sign-in services are deleted on their own schedule, and copies in their backups are replaced in time. Email us if you'd like the current periods.</li>
 <li><strong>Payment records:</strong> 6 years after the end of the financial year they belong to, as UK accounting rules require. This applies only to payment records, not to the rest of your group's data.</li>
 <li><strong>A manager's mobile number:</strong> until they delete their account or change the number. Stripe keeps its own copy under its privacy policy, and Twilio keeps records of codes sent for a limited time.</li>
+<li><strong>Email updates:</strong> until you unsubscribe. After that, Brevo keeps your address on a list of people not to email, so you aren't signed up again by mistake. Email us if you want it removed from that list too.</li>
 <li><strong>Support emails:</strong> 12 months after we last heard from you, unless we need them longer to settle a complaint or dispute.</li>
 <li><strong>Weather forecasts:</strong> at most 12 hours.</li>
 <li><strong>On your devices:</strong> a recording you delete goes to Recently deleted on your iPhone for 30 days, and you can bring it back or choose Delete now. Deleting a recording doesn't remove the workout from Apple Health, a copy still on your Watch or older backups.</li>
