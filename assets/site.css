@@ -1,4 +1,4 @@
-/* matchtempo.app — one stylesheet for every page. Colours and type from the MatchTempo design system. Light and dark follow the visitor's device, as in the app. */
+/* matchtempo.app — one stylesheet for every page. Colours and type from the MatchTempo design system. Light and dark follow the visitor's device until they pick one (assets/theme.js). */
 @font-face { font-family: "Big Shoulders Display"; src: url("/assets/BigShouldersDisplay-ExtraBold.ttf") format("truetype"); font-weight: 800; font-display: swap; }
 @font-face { font-family: "Big Shoulders Text"; src: url("/assets/BigShouldersText-Bold.ttf") format("truetype"); font-weight: 700; font-display: swap; }
 
@@ -10,11 +10,17 @@
   color-scheme: light dark;
 }
 @media (prefers-color-scheme: light) {
-  :root {
-    --ground: #F7F5F0; --surface: #FFFFFF; --line: #E4E0D8;
-    --text: #1A1917; --text-2: #55524C; --muted: #6E695F; --accent: #0E6A80; --accent-hover: #0A5163; --on-accent: #FFFFFF;
-  }
+  :root:not([data-theme="dark"]) { color-scheme: light; --ground: #F7F5F0; --surface: #FFFFFF; --line: #E4E0D8; --text: #1A1917; --text-2: #55524C; --muted: #6E695F; --accent: #0E6A80; --accent-hover: #0A5163; --on-accent: #FFFFFF; }
 }
+:root[data-theme="light"] { color-scheme: light; --ground: #F7F5F0; --surface: #FFFFFF; --line: #E4E0D8; --text: #1A1917; --text-2: #55524C; --muted: #6E695F; --accent: #0E6A80; --accent-hover: #0A5163; --on-accent: #FFFFFF; }
+:root[data-theme="dark"] { color-scheme: dark; }
+header.top img.on-light { display: none; }
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) header.top img.on-dark { display: none; }
+  :root:not([data-theme="dark"]) header.top img.on-light { display: block; }
+}
+:root[data-theme="light"] header.top img.on-dark { display: none; }
+:root[data-theme="light"] header.top img.on-light { display: block; }
 * { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; }
 body { margin: 0; background: var(--ground); color: var(--text); font-family: var(--body); font-weight: 700; font-size: 19px; line-height: 1.45; }
@@ -68,6 +74,8 @@ strong { color: var(--text); font-weight: 700; }
 
 footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; gap: 8px 20px; color: var(--muted); font-size: 16px; }
 footer a { color: var(--muted); }
+.theme-toggle { margin-left: auto; min-height: 36px; padding: 0 14px; border: 1.5px solid var(--line); border-radius: 18px; background: transparent; color: var(--muted); font: inherit; font-size: 16px; cursor: pointer; }
+.theme-toggle:hover { color: var(--text); border-color: var(--muted); }
 
 .draft { display: inline-block; margin: 0 0 16px; padding: 6px 12px; border-radius: 12px; background: var(--surface); box-shadow: inset 0 0 0 1.5px var(--muted); color: var(--text); font-size: 16px; }
 
