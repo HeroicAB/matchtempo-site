@@ -22,9 +22,9 @@
 
 <!-- The form posts straight to Brevo, which sends a confirmation email (double opt-in).
      No Brevo script is loaded, so matchtempo.app still sets no cookies.
-     Set action to the form URL from Brevo (Forms > the form > Share > HTML code, the
-     https://....sibforms.com/serve/... address). Leave it as "#" to show "not open yet". -->
-<form id="signup" class="signup" method="post" action="#">
+     The action is the form's public address from Brevo (Forms > the form > Share > HTML code).
+     Set it to "#" to show "not open yet". -->
+<form id="signup" class="signup" method="post" action="https://6aea202e.sibforms.com/serve/MUIFAN2K6gEZjCcLRCtiX-p9mA87WrLTa5LYJo56WhGuNAj2Tefep13mXRrRb-DvJRswKymGMmC3tb4fstZemDjNaN5jKIYPUMoJAFsGNPHa8r1lHENGjTru4DntG54z2DqOGQcCX2huvqjs2PYRH_UiYkuhR0fb8vIh1mXieTELI5v_YFO_huYYtzbYcsMFPTn5fp_LOjgIlh7n_Q==">
 <label for="EMAIL">Email address</label>
 <div class="row">
 <input type="email" id="EMAIL" name="EMAIL" autocomplete="email" required>
